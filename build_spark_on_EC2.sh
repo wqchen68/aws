@@ -10,6 +10,7 @@ tar zxvf spark-2.0.1.tgz
 sudo mv spark-2.0.1 /opt/spark/
 
 # Build with Hive (maybe spent 30 mins)
+cd /opt/spark/spark-2.0.1
 ./build/mvn -Pyarn -Phadoop-2.7 -Dhadoop.version=2.7.2 -Phive -Phive-thriftserver -DskipTests clean package
 
 # Configure Hive Connectio: add hive-site.xml
