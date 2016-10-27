@@ -35,14 +35,14 @@ Sys.setenv(SPARK_HOME="/opt/spark/spark-2.0.1/")
 .libPaths(c(file.path(Sys.getenv("SPARK_HOME"), "R", "lib"), .libPaths()))
 library(SparkR)
 library(magrittr)
-library(dplyr)
 
-sc <- sparkR.session(appName = "SparkR-data-manipulation-example")
+sparkR.session(appName = "test")
 
+df <- read.parquet("s3://vpon.dsp/joined_wonbid_response/dt=2016-10-01")
 
-df <- read.parquet(sc, "s3://vpon.dsp/joined_wonbid_response/dt=2016-10-01")
+head(df)
 
-
+sparkR.stop()
 
 
 
